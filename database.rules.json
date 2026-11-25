@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "events": {
+      "$eid": {
+        ".read": true,
+        "meta": { ".write": "!data.exists()" },
+        "votes": {
+          "$uid": {
+            ".write": true,
+            ".validate": "newData.child('name').isString() && newData.child('name').val().length <= 20"
+          }
+        }
+      }
+    }
+  }
+}
